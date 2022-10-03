@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-    	int a=12,  b=34;
+    	int a=12, b=34;
     	System.out.println("*****************************");
     	System.out.println(" Probando un nuevo proyecto.");
     	System.out.println("*****************************\n");
