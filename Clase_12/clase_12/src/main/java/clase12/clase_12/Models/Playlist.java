@@ -11,20 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Entity
-@Data
-@Table(name = "USER_TYPES")
-public class TipoUsuario {
+@Table( name = "PLAYLIST")
+public class Playlist {
     
     @Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "NAME") 
-    private String nombre; // free, premium, artista
+    @Column( name = "NAME")
+    private String nombre;
 
-    @OneToMany(mappedBy = "tipoUsuario", cascade = CascadeType.ALL)
-    private Collection<Usuario> students;
+    @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
+    private Collection<Cancion> canciones;
 }

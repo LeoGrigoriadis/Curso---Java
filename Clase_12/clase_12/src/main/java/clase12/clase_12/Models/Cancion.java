@@ -1,9 +1,16 @@
 package clase12.clase_12.Models;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -13,20 +20,30 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "SONG")
+@Table(name = "SONGS")
 public class Cancion {
 	
 	@Id
-	@Column( name = "ID")
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 	
 	@Column( name = "TITLE")
 	private String titulo;
 
-	@Column( name = "ARTIST")
-	private Usuario artista;
+	@ManyToMany(cascade = {
+		CascadeType.PERSIST,
+		CascadeType.MERGE })
+	@JoinTable( name = "ARTIST_USER",
+		joinColumns = {@JoinColumn(name = "ARTIST_ID")},
+		inverseJoinColumns = {@JoinColumn(name = "USER_ID")}
+	)
+	private Collection<Usuario> artistas;
 
-	@Column( name = "ALBUM_ID")
-	// @ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
+	@JoinColumn( name = "ALBUM_ID")
 	private Album album;
+
+	@ManyToOne()
+	@JoinColumn( name = "PLAYLIST_ID")
+	private Playlist playlist;
 }
