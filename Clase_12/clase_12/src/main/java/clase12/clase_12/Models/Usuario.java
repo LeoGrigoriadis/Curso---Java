@@ -35,11 +35,12 @@ public class Usuario {
     @ManyToOne()
     private TipoUsuario tipoUsuario;
 	
-	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-	private Collection<Cancion> albums;
+	//albums
+	// @OneToMany(mappedBy = "artistaId", cascade = CascadeType.ALL)
+	// private Collection<Album> albums;
 
-	@ManyToMany(mappedBy = "artistas")
-	private Collection<Cancion> discografia;
+	// @ManyToMany(mappedBy = "artistas")
+	// private Collection<Cancion> discografia;
 
 
 

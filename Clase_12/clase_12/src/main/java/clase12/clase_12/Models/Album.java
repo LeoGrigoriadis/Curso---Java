@@ -13,12 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Entity
-@Getter
-@NoArgsConstructor
+@Data
 
 @Table(name = "ALBUMS")
 public class Album{
@@ -31,9 +29,9 @@ public class Album{
 	private String titulo;
 	
     @ManyToOne()
-	@JoinColumn (name = "USER_TYPE_ID")
+	@JoinColumn (name = "USER_ID")
 	private Usuario artistaId;
 
-	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
-	private Collection<Cancion> canciones;
+	// @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+	// private Collection<Cancion> canciones;
 }

@@ -25,6 +25,6 @@ public class TipoUsuario {
     @Column(name = "NAME") 
     private String nombre; // free, premium, artista
 
-    @OneToMany(mappedBy = "tipoUsuario", cascade = CascadeType.ALL)
-    private Collection<Usuario> students;
+    // @OneToMany(mappedBy = "tipoUsuario", cascade = CascadeType.ALL)
+    // private Collection<Usuario> usuarios;
 }

@@ -1,11 +1,11 @@
 package clase12.clase_12.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-import clase12.clase_12.Controllers.Services.CancionService;
+import clase12.clase_12.Services.CancionService;
 
-@Controller
+@RestController
 public class CancionController {
     
     @Autowired

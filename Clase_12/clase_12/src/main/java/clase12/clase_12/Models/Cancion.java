@@ -14,12 +14,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 @Entity
-@Getter
-@NoArgsConstructor
+@Data
 @Table(name = "SONGS")
 public class Cancion {
 	
@@ -43,7 +41,7 @@ public class Cancion {
 	@JoinColumn( name = "ALBUM_ID")
 	private Album album;
 
-	@ManyToOne()
-	@JoinColumn( name = "PLAYLIST_ID")
-	private Playlist playlist;
+	// @ManyToOne()
+	// @JoinColumn( name = "PLAYLIST_ID")
+	// private Playlist playlist;
 }
