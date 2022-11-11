@@ -26,7 +26,7 @@ public class Cancion {
 	private Long id;
 	
 	@Column( name = "TITLE")
-	private String titulo;
+	private String title;
 
 	@ManyToMany(cascade = {
 		CascadeType.PERSIST,
@@ -35,7 +35,7 @@ public class Cancion {
 		joinColumns = {@JoinColumn(name = "ARTIST_ID")},
 		inverseJoinColumns = {@JoinColumn(name = "USER_ID")}
 	)
-	private Collection<Usuario> artistas;
+	private Collection<User> artists;
 
 	@ManyToOne()
 	@JoinColumn( name = "ALBUM_ID")

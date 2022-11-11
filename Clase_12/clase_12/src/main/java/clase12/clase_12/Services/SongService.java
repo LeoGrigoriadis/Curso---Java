@@ -3,12 +3,12 @@ package clase12.clase_12.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import clase12.clase_12.Repositories.CancionRepository;
+import clase12.clase_12.Repositories.SongRepository;
 
 
 @Service
-public class CancionService {
+public class SongService {
     
     @Autowired
-    CancionRepository cancionRepo;
+    SongRepository cancionRepo;
 }

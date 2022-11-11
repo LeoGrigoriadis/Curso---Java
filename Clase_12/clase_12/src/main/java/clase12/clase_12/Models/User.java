@@ -1,39 +1,41 @@
 package clase12.clase_12.Models;
 
-import java.util.Collection;
+import java.util.Optional;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Entity
 @Data
+@AllArgsConstructor
 @Table(name = "USERS")
-public class Usuario {
+public class User {
 	
-	@Id 
+	public User(String username2, String passEncripted, UserType userType2) {
+    }
+
+    @Id 
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 
 	@Column( name = "USERNAME")
-	private String usuario;
+	private String username;
 
 	@Column (name = "PASSWORD")
-	private String contrasena;
+	private String password;
 
 	@JoinColumn (name = "USER_TYPE_ID")
     @ManyToOne()
-    private TipoUsuario tipoUsuario;
+    private UserType userType;
 	
 	//albums
 	// @OneToMany(mappedBy = "artistaId", cascade = CascadeType.ALL)

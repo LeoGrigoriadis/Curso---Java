@@ -19,7 +19,7 @@ public class Playlist {
     private Long id;
 
     @Column( name = "NAME")
-    private String nombre;
+    private String name;
 
     // @OneToMany(mappedBy = "playlist", cascade = CascadeType.ALL)
     // private Collection<Cancion> canciones;

@@ -7,6 +7,6 @@ import lombok.Data;
 public class AlbumDTO{
 
 	private Long id;
-	private String titulo;
-	private Collection<CancionDTO> canciones;
+	private String title;
+	private Collection<SongDTO> songs;
 }
