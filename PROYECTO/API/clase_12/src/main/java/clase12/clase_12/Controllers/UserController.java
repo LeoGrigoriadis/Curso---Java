@@ -19,7 +19,7 @@ import clase12.clase_12.Models.User;
 import clase12.clase_12.Services.UserService;
 
 @RestController
-@RequestMapping("/users/")
+@RequestMapping("/users")
 public class UserController {
     
     @Autowired

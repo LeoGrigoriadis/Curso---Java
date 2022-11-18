@@ -1,7 +1,5 @@
 package clase12.clase_12.Models;
 
-import java.util.Optional;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

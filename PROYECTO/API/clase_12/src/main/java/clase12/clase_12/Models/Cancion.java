@@ -39,7 +39,7 @@ public class Cancion {
 
 	@ManyToOne()
 	@JoinColumn( name = "ALBUM_ID")
-	private Album album;
+	private Playlist album;
 
 	// @ManyToOne()
 	// @JoinColumn( name = "PLAYLIST_ID")

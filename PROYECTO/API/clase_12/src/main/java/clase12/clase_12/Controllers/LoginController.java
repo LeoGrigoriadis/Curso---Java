@@ -24,14 +24,11 @@ import clase12.clase_12.Configuration.JwtUserDetailsServiceImpl;
 import clase12.clase_12.Models.User;
 import clase12.clase_12.Models.UserType;
 import clase12.clase_12.Repositories.UserTypeRepository;
-import clase12.clase_12.Services.UserService;
 
 @RestController
 @RequestMapping("/auth")
 public class LoginController {
     
-    @Autowired
-    private UserService userService;
     @Autowired
     private JwtTokenUtils tokenUtils;
     @Autowired
