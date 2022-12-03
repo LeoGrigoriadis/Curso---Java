@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -26,8 +27,9 @@ public class Playlist {
 
     @Column( name = "NAME")
     private String name;
-
-    @Column( name = "USER_ID")
+    
+    @ManyToOne()
+    @JoinColumn( name = "USER_ID")
     private User creator;
 
     @Column( name = "IS_PUBLIC")

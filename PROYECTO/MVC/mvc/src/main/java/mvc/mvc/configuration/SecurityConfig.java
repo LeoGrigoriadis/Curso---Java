@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -39,7 +38,11 @@ public class SecurityConfig {
     }
 
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.csrf().disable()
+        .formLogin().loginPage("/login.html")
+        .and().logout().logoutSuccessUrl("/logout.html")
+        .and()
+        .authorizeRequests()
         .antMatchers(HttpMethod.DELETE).hasRole("ADMIN")
         .antMatchers("/admin/**").hasAnyRole("ADMIN")
         .antMatchers("/login/**").anonymous()

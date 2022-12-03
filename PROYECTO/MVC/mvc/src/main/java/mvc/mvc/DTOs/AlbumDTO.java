@@ -1,4 +1,4 @@
-package clase12.clase_12.DTOs;
+package mvc.mvc.DTOs;
 
 import java.util.Collection;
 import lombok.Data;

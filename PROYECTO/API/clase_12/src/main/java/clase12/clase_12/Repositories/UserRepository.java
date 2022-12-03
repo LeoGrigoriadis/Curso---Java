@@ -10,5 +10,5 @@ import clase12.clase_12.Models.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>{
     User getByUsername(String username);
-    Optional<User> findUserByUsernameByPassword(String username, String password);
+    Optional<User> findUserByUsernameAndPassword(String username, String password);
 }

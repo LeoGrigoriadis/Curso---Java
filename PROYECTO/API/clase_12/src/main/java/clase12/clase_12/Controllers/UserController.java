@@ -72,6 +72,4 @@ public class UserController {
         if(isUpdate){ return ResponseEntity.status(HttpStatus.OK).body("OK: El usuario fue modificado con éxito.");
         } return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ERROR: El usuario no se pudo modificar.");
     }
-    // mappeo
-    // PersonaDTO personaDTO = mapper.map(persona, PersonaDTO.class);
 }

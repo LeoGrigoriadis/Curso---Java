@@ -31,7 +31,7 @@ public class UserService {
 
     public User getUserByUsernameByPassword(String username, String password) {
         //traigo el usuario para comprobar si existe.
-        Optional<User> userDb = userRepo.findUserByUsernameByPassword(username, password);
+        Optional<User> userDb = userRepo.findUserByUsernameAndPassword(username, password);
         if(userDb.get() != null){
             return userDb.get();
         } else return null;

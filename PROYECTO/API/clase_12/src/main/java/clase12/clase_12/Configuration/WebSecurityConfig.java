@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
+public class WebSecurityConfig extends WebSecurityConfiguration{
     
     @Autowired
     private UserDetailsService userDetails;
@@ -32,9 +33,14 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public BCryptPasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http)  throws Exception {
         
-        http.authenticationProvider(authProvider());
+        http.csrf().disable().authenticationProvider(authProvider());
 
         http.authorizeRequests().antMatchers("/login").permitAll()
         .antMatchers("/users/**").hasAnyAuthority("USER_COMMON", "USER_PREMIUM", "USER_ARTIST")

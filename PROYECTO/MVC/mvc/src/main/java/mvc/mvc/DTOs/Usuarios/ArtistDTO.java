@@ -1,4 +1,4 @@
-package clase12.clase_12.DTOs.Usuarios;
+package mvc.mvc.DTOs.Usuarios;
 
 import lombok.Data;
 

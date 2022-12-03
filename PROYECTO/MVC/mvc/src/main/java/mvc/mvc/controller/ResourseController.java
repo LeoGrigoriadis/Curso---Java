@@ -8,6 +8,8 @@ public class ResourseController {
     
     @GetMapping("/login")
     public String login(){
+        // mappeo
+        // PersonaDTO personaDTO = mapper.map(persona, PersonaDTO.class);
         return "login";
     }
  

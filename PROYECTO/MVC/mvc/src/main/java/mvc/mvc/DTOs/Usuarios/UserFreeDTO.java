@@ -1,10 +1,9 @@
-package clase12.clase_12.DTOs.Usuarios;
+package mvc.mvc.DTOs.Usuarios;
 
 import java.util.Collection;
 
-import clase12.clase_12.DTOs.SongDTO;
-import clase12.clase_12.Models.UserType;
 import lombok.Data;
+import mvc.mvc.DTOs.SongDTO;
 
 @Data
 public class UserFreeDTO {
@@ -12,6 +11,6 @@ public class UserFreeDTO {
 	private Long id;
 	private String name;
 	private int age;
-	private UserType userType;
+	private int userType;
 	private Collection<SongDTO> discography;
 }

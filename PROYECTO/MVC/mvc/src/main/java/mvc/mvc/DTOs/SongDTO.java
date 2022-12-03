@@ -1,7 +1,7 @@
-package clase12.clase_12.DTOs;
+package mvc.mvc.DTOs;
 
-import clase12.clase_12.DTOs.Usuarios.UserFreeDTO;
 import lombok.Data;
+import mvc.mvc.DTOs.Usuarios.UserFreeDTO;
 
 @Data
 public class SongDTO {

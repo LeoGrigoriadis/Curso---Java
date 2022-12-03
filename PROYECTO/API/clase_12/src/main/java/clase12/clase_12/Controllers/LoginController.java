@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,6 +25,7 @@ import clase12.clase_12.Configuration.JwtUserDetailsServiceImpl;
 import clase12.clase_12.Models.User;
 import clase12.clase_12.Models.UserType;
 import clase12.clase_12.Repositories.UserTypeRepository;
+import clase12.clase_12.Services.UserService;
 
 @RestController
 @RequestMapping("/auth")
@@ -34,9 +36,14 @@ public class LoginController {
     @Autowired
     private JwtUserDetailsServiceImpl JwtUserService;
     @Autowired
+    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authManager;
     @Autowired 
     private UserTypeRepository userTypeRepo;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam("username") String username, @RequestParam("password") String password) throws UnsupportedEncodingException{
@@ -76,11 +83,11 @@ public class LoginController {
         HashMap<String, Object> responseMap = new HashMap<>();
         try{
             Optional<UserType> userType = userTypeRepo.findById(1L);
-            String passEncripted = new BCryptPasswordEncoder().encode(password);
+            String passEncripted = encoder.encode(password);
             User user = new User(username, passEncripted, userType.get());
             UserDetails userDetails = JwtUserService.loadUserByUsername(username);
             String token = tokenUtils.generateToken(userDetails);
-            // TODO userService.register(user);
+            userService.save(user);
             responseMap.put("error", false);
             responseMap.put("mensaje", "logueado correctamente");
             responseMap.put("token", token);
